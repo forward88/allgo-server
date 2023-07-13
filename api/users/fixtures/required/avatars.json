@@ -1,0 +1,32 @@
+[
+{
+  "model": "users.avatar",
+  "pk": 1,
+  "fields": {
+    "name": "dave",
+    "model_asset": "users/assets/avatars/model/Dave_idle_v02.glb",
+    "metadata_asset": "users/assets/avatars/metadata/Dave_idle_v02.json",
+    "static_image_asset": "users/assets/avatars/metadata/dave.png"
+  }
+},
+{
+  "model": "users.avatar",
+  "pk": 2,
+  "fields": {
+    "name": "kate",
+    "model_asset": "users/assets/avatars/model/Kate_Idle.glb",
+    "metadata_asset": "users/assets/avatars/metadata/Kate_Idle.json",
+    "static_image_asset": "users/assets/avatars/metadata/kate.png"
+  }
+},
+{
+  "model": "users.avatar",
+  "pk": 3,
+  "fields": {
+    "name": "jimmy",
+    "model_asset": "users/assets/avatars/model/Jimmy_Idle.glb",
+    "metadata_asset": "users/assets/avatars/metadata/Jimmy_Idle.json",
+    "static_image_asset": "users/assets/avatars/metadata/jimmy.png"
+  }
+}
+]

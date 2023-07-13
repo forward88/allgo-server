@@ -1,0 +1,74 @@
+[
+{
+  "model": "challenges.challengecategory",
+  "pk": 1,
+  "fields": {
+    "name": "Fitness",
+    "icon_emoji": "👟"
+  }
+},
+{
+  "model": "challenges.challengecategory",
+  "pk": 2,
+  "fields": {
+    "name": "Nutrition",
+    "icon_emoji": "🥑"
+  }
+},
+{
+  "model": "challenges.challengecategory",
+  "pk": 3,
+  "fields": {
+    "name": "Mental",
+    "icon_emoji": "🌱"
+  }
+},
+{
+  "model": "challenges.challengecategory",
+  "pk": 4,
+  "fields": {
+    "name": "Finance",
+    "icon_emoji": "💳"
+  }
+},
+{
+  "model": "challenges.challengecategory",
+  "pk": 5,
+  "fields": {
+    "name": "Impact",
+    "icon_emoji": "🌐"
+  }
+},
+{
+  "model": "challenges.challengecategory",
+  "pk": 6,
+  "fields": {
+    "name": "Skills",
+    "icon_emoji": "🎨"
+  }
+},
+{
+  "model": "challenges.challengecategory",
+  "pk": 7,
+  "fields": {
+    "name": "Support",
+    "icon_emoji": "💭"
+  }
+},
+{
+  "model": "challenges.challengecategory",
+  "pk": 8,
+  "fields": {
+    "name": "Random",
+    "icon_emoji": "🌀"
+  }
+},
+{
+  "model": "challenges.challengecategory",
+  "pk": 9,
+  "fields": {
+    "name": "Mixed",
+    "icon_emoji": "💥"
+  }
+}
+]

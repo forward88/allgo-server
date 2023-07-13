@@ -1,0 +1,74 @@
+[
+{
+  "model": "users.usercolorprofile",
+  "pk": 1,
+  "fields": {
+    "background_rgb": "292A2D",
+    "closest_css3_color": "darkslategrey"
+  }
+},
+{
+  "model": "users.usercolorprofile",
+  "pk": 2,
+  "fields": {
+    "background_rgb": "DE2CA7",
+    "closest_css3_color": "deeppink"
+  }
+},
+{
+  "model": "users.usercolorprofile",
+  "pk": 3,
+  "fields": {
+    "background_rgb": "F45952",
+    "closest_css3_color": "tomato"
+  }
+},
+{
+  "model": "users.usercolorprofile",
+  "pk": 4,
+  "fields": {
+    "background_rgb": "3ED46B",
+    "closest_css3_color": "mediumseagreen"
+  }
+},
+{
+  "model": "users.usercolorprofile",
+  "pk": 5,
+  "fields": {
+    "background_rgb": "A484FF",
+    "closest_css3_color": "mediumpurple"
+  }
+},
+{
+  "model": "users.usercolorprofile",
+  "pk": 6,
+  "fields": {
+    "background_rgb": "4CBEFE",
+    "closest_css3_color": "cornflowerblue"
+  }
+},
+{
+  "model": "users.usercolorprofile",
+  "pk": 7,
+  "fields": {
+    "background_rgb": "FFA234",
+    "closest_css3_color": "goldenrod"
+  }
+},
+{
+  "model": "users.usercolorprofile",
+  "pk": 8,
+  "fields": {
+    "background_rgb": "FF8984",
+    "closest_css3_color": "lightcoral"
+  }
+},
+{
+  "model": "users.usercolorprofile",
+  "pk": 9,
+  "fields": {
+    "background_rgb": "6D3FEE",
+    "closest_css3_color": "blueviolet"
+  }
+}
+]

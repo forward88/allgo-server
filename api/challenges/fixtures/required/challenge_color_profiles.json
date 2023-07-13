@@ -1,0 +1,82 @@
+[
+{
+  "model": "challenges.challengecolorprofile",
+  "pk": 1,
+  "fields": {
+    "background_rgb": "EE64C3",
+    "title_rgb": "C6FF99",
+    "description_rgb": "FFFFFF",
+    "closest_css3_color": "hotpink"
+  }
+},
+{
+  "model": "challenges.challengecolorprofile",
+  "pk": 2,
+  "fields": {
+    "background_rgb": "25BF53",
+    "title_rgb": "FDFF86",
+    "description_rgb": "FFFFFF",
+    "closest_css3_color": "limegreen"
+  }
+},
+{
+  "model": "challenges.challengecolorprofile",
+  "pk": 3,
+  "fields": {
+    "background_rgb": "8660F1",
+    "title_rgb": "8FD7FF",
+    "description_rgb": "FFFFFF",
+    "closest_css3_color": "mediumslateblue"
+  }
+},
+{
+  "model": "challenges.challengecolorprofile",
+  "pk": 4,
+  "fields": {
+    "background_rgb": "C1E9FF",
+    "title_rgb": "DE2CA7",
+    "description_rgb": "292A2D",
+    "closest_css3_color": "paleturquoise"
+  }
+},
+{
+  "model": "challenges.challengecolorprofile",
+  "pk": 5,
+  "fields": {
+    "background_rgb": "F9D1FF",
+    "title_rgb": "8660F1",
+    "description_rgb": "292A2D",
+    "closest_css3_color": "lavender"
+  }
+},
+{
+  "model": "challenges.challengecolorprofile",
+  "pk": 6,
+  "fields": {
+    "background_rgb": "F45952",
+    "title_rgb": "FEFFB5",
+    "description_rgb": "FFFFFF",
+    "closest_css3_color": "tomato"
+  }
+},
+{
+  "model": "challenges.challengecolorprofile",
+  "pk": 7,
+  "fields": {
+    "background_rgb": "FDFF86",
+    "title_rgb": "4516CC",
+    "description_rgb": "292A2D",
+    "closest_css3_color": "khaki"
+  }
+},
+{
+  "model": "challenges.challengecolorprofile",
+  "pk": 8,
+  "fields": {
+    "background_rgb": "C6FF99",
+    "title_rgb": "25BF53",
+    "description_rgb": "292A2D",
+    "closest_css3_color": "palegreen"
+  }
+}
+]

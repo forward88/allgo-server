@@ -1,0 +1,5 @@
+.gitignore
+.env
+.git
+.coverage
+docker-compose.yml

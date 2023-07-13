@@ -1,0 +1,188 @@
+Schoolyard API ChangeLog
+
+0.15.1 (2022-03-10):
+ * Extend /api/user/challenge/ endpoints to any user:
+   - Optional `user_id` parameter for:
+     - /api/user/challenge/list/
+     - /api/user/challenge/detail/
+
+0.15.0 (2022-02-25):
+ * Case-insensitive team_uids:
+   - Use SQL `LIKE` to match `team_uid` strings in the database.
+ * Supplemental XP:
+   - Incorporate supplmental XP to accommodate non-obstacle methods of earning
+     XP
+   - Automatically add 100 XP to users who claim a nickname
+
+0.14.1 (2022-02-18)
+ * Fix bug in /api/user/detail/:
+   - Use COALESCE to ensure that a user with no activity has 0 xp_earned, not
+     `None`.
+
+0.14.0 (2022-02-16)
+ * Extend /api/user/detail/ to any user:
+   - Optional `user_id` parameter add to /api/user/detail/.  Default remains
+     users specified by the access token if `user_id` is absent.
+
+0.13.0 (2022-02-11)
+ * Add XP level data to UserDetail:
+   - `xp_level` and `xp_level_progress` has been added to /api/user/detail/.
+   - `xp_level_progress` is a value between 0 and 1.
+
+0.12.1 (2022-02-11)
+ * Add a static avatar image:
+   - `static_image_asset_src` (subfield of `avatar`) has been added to
+     /api/user/detail/.
+
+0.12.0 (2022-02-11)
+ * Add namespaces to Sendbird IDs, replacing the implicit use of `team_uid` and
+   `user_id` for accessing Sendbird users and channels:
+   - A new field `chat_user_id` has been added to UserDetail objects, affected
+     endpoints:
+     - /api/user/detail/
+   - A new field `chat_channel_id` has been added to TeamDetail objects, affected
+     endpoints:
+     - /api/team/detail/
+     - /api/team/create/
+
+0.11.2 (2022-02-10)
+ * Sendbird chat channels for Challenges added:
+   - A new field `chat_channel_id` has been added to endpoints that serve
+     ChallengeDetail objects:
+      - /api/challenge/detail/
+      - /api/challenge/detail/
+      - /api/user/challenge/detail/
+      - /api/user/obstacle/list/
+
+0.11.1 (2022-02-10)
+ * Streak data added:
+   - UserProfileDetail object includes a new `streak` field, affected
+     endpoints:
+      - /api/user/detail/
+      - /api/team/detail/
+      - /api/team/create/
+      - /api/team/invitation/list/
+ * Activity record (/api/user/obstacle-activity-record/) includes additional
+   data:
+   - `max_streak` field added
+   - `n_obstacles` field added
+   - `total_xp_earned` field added
+
+0.11.0 (2022-02-03)
+ * User deletion added:
+   - /api/user/delete-account/ added
+ * Scoring added:
+   - `xp_earned` field has been added to user and team objects:
+      - /api/user/challenge/list/
+      - /api/user/detail/
+      - /api/team/detail/
+      - /api/team/invitation/list/
+
+0.10.0 (2022-02-01)
+ * Profile editing added:
+   - /api/user/profile/edit/ added
+   - /api/user/profile/options/ added, provides the list of available
+     background colors and avatars
+   - `avatar` and `background_color` fields have been added to the
+      UserProfileDetail object, affected endpoints:
+        - /api/user/detail/
+        - /api/team/create/
+        - /api/team/detail/
+        - /api/team/invitation/list/
+ * User challenge list simplified:
+   - `obstacles` field has been removed from /api/user/challenge/list/
+
+0.9.5 (2022-01-31)
+ * Team activity records provided:
+   - New endpoint, /api/team/obstacle-activity-record/ added
+ * User obstacle lists available for any given day:
+   - /api/user/obstacle/list/ accepts an optional date (YYYY-MM-DD) parameter,
+     `as_of`.  If provided, the response is a list of the user's obstacle data
+     for the given day.
+ * User obstacle lists provide start and end dates for the obstacle:
+   - /api/user/challenge/detail/ affected
+ * Team invitations include more detail:
+   - `inviter` field changed from string to UserProfileDetail object
+   - `invitee` field added
+   - `status` field added
+   - The list of invitations is no longer limited to pending received
+     invitations.  If a user is a member of a team, all invitations to that
+     team are returned, including accepted and declined invitations.
+ * User challenge details include obstacle lists:
+   - /api/users/challenge/detail/ and /api/users/challenge/list/ affected
+
+0.9.4 (2022-01-25)
+ * Team invitation SMS notification:
+   - Calls to invite users with a phone number will send an SMS notification to
+     the user.  This does not change the API.
+
+0.9.3 (2022-01-25)
+ * Sendbird integration:
+   - /api/user/detail now returns "user_id" additionally to previous info, it
+     is in uuid format
+   - on successful call /api/user/claim-nickname user with that nickname and id
+     equal to mentioned user_id created in sendbird
+   - on successful call /api/team/create group-channel with id equal to
+     shareable_uid created in sendbird
+   - on /api/team/invitation/accept or /api/team/leave corresponding user
+     enters/leaves corresponding group-channel
+   - so, frontend app able to chat in sendbird using user_id and shareable_uid
+
+0.9.2 (2022-01-18)
+ * Update documentation to correctly describe responses that are lists of
+   objects.
+ * Change duration string fields from 0.9.1 update to integer fields
+   representing the duration as the total number of seconds:
+   - /api/challenge/detail/; /api/challenge/list/; and
+     /api/challenge/obstacle-detail/:
+      - key `duration` replaced by `duration_seconds`
+   - /api/user/challenge/detail/; /api/user/challenge/list/; and
+     /api/user/obstacle/list/:
+      - key `duration` replaced by `duration_seconds`
+      - key `remaining_duration` replaced by `remaining_seconds`
+ * Reorganize team endpoints into a `team` section of the API:
+   - /api/user/accept-team-invitation/ becomes /api/team/invitation/accept/
+   - /api/user/create-team/ becomes /api/team/create/
+      - key `creator` added
+      - key `shareable_uid` becomes `team_uid`
+      - key `roster` added
+   - /api/user/invite-team-members/ becomes /api/team/invite/
+   - /api/user/leave-team/ becomes /api/team/leave/
+   - /api/user/list-team-invitations/ becomes /api/team/invitation/list/
+      - key `inviter_nickname` becomes `inviter`
+      - key `team_uid` replaced by `team` subobject
+ * Added invitation decline endpoint:
+   - /api/team/invitation/decline/
+ * Added team detail endpoint, listing the team roster:
+   - /api/team/detail/
+
+0.9.1 (2022-01-17)
+ * Convert duration fields from integer days to string representation,
+   "[DD] [HH:[MM:]]ss[.uuuuuu]".  Existing duration fields are deprecated and
+   will be removed in a future release:
+   - /api/challenge/detail/; /api/challenge/list/; and /api/challenge/obstacle-detail/:
+      - key `duration_days` deprecated by `duration`
+      - key `interval_days` deprecated by `duration`
+   - /api/user/challenge/detail/; /api/user/challenge/list/; and /api/user/obstacle/list/:
+      - key `interval_days` deprecated by `duration`
+      - key `remaining_days` deprecated by `remaining_duration`
+
+0.9.0 (2022-01-13)
+ * Team API:
+   - added /api/user/create-team/
+   - added /api/user/invite-team-members/
+   - added /api/user/list-team-invitations/
+   - added /api/user/accept-team-invitation/
+   - added /api/user/leave-team/
+ * /api/auth/sign-in/ (https://gitlab.com/dualbootpartners/school-yard/schoolyard-mobile/-/issues/138):
+   - key `new_user` added
+   - key `nickname` added
+ * /api/user/detail/:
+   - key `team_uid` added
+
+0.8.2 (2022-01-11)
+ * /api/user/challenge/detail/ and /api/user/challenge/list/:
+   - key `state_name` becomes `state`
+   - key `iteration` added
+ * /api/user/challenge/list/:
+   - added `closed_challenges` section

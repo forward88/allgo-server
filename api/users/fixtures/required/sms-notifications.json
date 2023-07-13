@@ -1,0 +1,10 @@
+[
+{
+  "model": "users.smsnotification",
+  "pk": 1,
+  "fields": {
+    "notification_type": "TEAM_INVITATION",
+    "message_body": "I’m starting a new team on Schoolyard! Join me with code %%TEAM_UID%%. <download link>"
+  }
+}
+]

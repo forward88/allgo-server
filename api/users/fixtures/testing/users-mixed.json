@@ -1,0 +1,104 @@
+[
+{
+    "model": "users.apiuser",
+    "pk": "72735390-abea-4f06-b38d-21e6b7a30197",
+    "fields": {
+        "phone_number": "+16125554323",
+        "state": "A",
+        "first_sign_in": null,
+        "last_sign_in": null,
+        "last_access": null,
+        "refresh_token_revocation_cursor": 0,
+        "ctime": "2021-10-24T15:50:36.004Z"
+    }
+},
+{
+    "model": "users.apiuser",
+    "pk": "85aac42c-4540-4a31-9e7b-0c2472320fdc",
+    "fields": {
+        "phone_number": "+16125554324",
+        "state": "A",
+        "first_sign_in": null,
+        "last_sign_in": null,
+        "last_access": null,
+        "refresh_token_revocation_cursor": 0,
+        "ctime": "2021-10-24T16:14:00.853Z"
+    }
+},
+{
+    "model": "users.apiuser",
+    "pk": "b4a63057-25a9-40db-84ad-382c19dfc30f",
+    "fields": {
+        "phone_number": "+16125554524",
+        "state": "A",
+        "first_sign_in": "2021-10-24T17:34:08.654Z",
+        "last_sign_in": "2021-10-24T18:34:08.654Z",
+        "last_access": "2021-10-24T18:38:23.832Z",
+        "refresh_token_revocation_cursor": 5,
+        "ctime": "2021-10-24T17:24:08.654Z"
+    }
+},
+{
+    "model": "users.apiuser",
+    "pk": "01d164d5-82cb-49fb-8467-bde794e6c127",
+    "fields": {
+        "phone_number": "+16125554574",
+        "state": "D",
+        "first_sign_in": null,
+        "last_sign_in": null,
+        "last_access": null,
+        "refresh_token_revocation_cursor": 0,
+        "ctime": "2021-10-23T17:24:08.654Z"
+    }
+},
+{
+    "model": "users.apiuser",
+    "pk": "7bdc94e5-82b1-4359-a624-fc37bd38ac7e",
+    "fields": {
+        "phone_number": "+16125558574",
+        "state": "A",
+        "first_sign_in": "2021-10-23T07:46:12.853Z",
+        "last_sign_in": "2021-10-23T07:46:12.853Z",
+        "last_access": null,
+        "refresh_token_revocation_cursor": 0,
+        "ctime": "2021-10-23T07:39:47.029Z"
+    }
+},
+{
+    "model": "users.apiuser",
+    "pk": "af2f0005-a681-4c87-99d2-df113479da66",
+    "fields": {
+        "phone_number": "+16125555447",
+        "state": "A",
+        "first_sign_in": null,
+        "last_sign_in": null,
+        "last_access": null,
+        "refresh_token_revocation_cursor": 0,
+        "ctime": "2021-11-03T12:28:16.905Z"
+    }
+},
+{
+    "model": "users.userprofile",
+    "pk": 1,
+    "fields": {
+        "api_user": "72735390-abea-4f06-b38d-21e6b7a30197",
+        "nickname": "TelegramSam"
+    }
+},
+{
+    "model": "users.userprofile",
+    "pk": 4,
+    "fields": {
+        "api_user": "85aac42c-4540-4a31-9e7b-0c2472320fdc",
+        "nickname": "JenniferJuniper"
+    }
+},
+{
+    "model": "users.userprofile",
+    "pk": 5,
+    "fields": {
+        "api_user": "b4a63057-25a9-40db-84ad-382c19dfc30f",
+        "nickname": "SashaFierce"
+    }
+}
+]

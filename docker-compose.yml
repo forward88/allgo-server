@@ -1,0 +1,81 @@
+version: "3.7"
+
+x-web-volumes: &web-volumes
+  - .:/app:cached
+  - ~/.bash_history:/root/.bash_history
+
+x-db-config: &db-config
+  DATABASE_NAME: postgres
+  DATABASE_USER: postgres
+  DATABASE_PASSWORD: pgpassword
+  DATABASE_HOST: db
+  DATABASE_PORT: 5432
+  POSTGRES_PASSWORD: pgpassword
+  DATABASE_URL: postgresql://postgres:pgpassword@db:5432/postgres
+
+x-app-config: &app-config
+  SCHOOLYARD_ENV: "dev"
+  SECRET_KEY: secret_key
+  DEBUG: "true"
+  ALLOWED_HOSTS: 127.0.0.1,localhost
+  ANONYMOUS_API_KEY: 123
+  FERNET_KEY: Gj7uAy4I3BOs5_FW5u-8T6Rzk_2jV3FpHaaeD2qBkKs=
+  JWT_VERSION: 2.0
+  JWT_ACCESS_TOKEN_LIFETIME_S: 10000
+  JWT_REFRESH_TOKEN_LIFETIME_S: 10000
+  JWT_PUBLIC_KEY: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCfb1VuiIFkZkuR9rWZIqRKTt8RyJgL4HNC1+orO3Rgvp3mRHwG2QQB41dmplBV96DpTa6EOdgpkihzGcZqGcRBaU/pnv/FJBVM9/oo2VglPWxCKtOa1C95fpZ5Bx0ozbPqtiWbGQGHQTi+pEtBWbZRAtM4N5pEnwrGmOg2rmBawa5Y8H7woKKCCeLtnlEbR5nyY2nEuBnImP91vOxWXBGOa4H2/M71XPnwMfKGj+c11hgCOXzp9Pv9d15hhKFP/HG5nvTd6RuetaLdSSyIuOoB6Pvg2rRWJoaoBkfthCOAClnUVMZ5mkRgCfv+UnQtAifhjeE/Ywu2dTtK6R22HkVP iamsav@savmac.local
+  JWT_PRIVATE_KEY: |-
+    -----BEGIN OPENSSH PRIVATE KEY-----
+    b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABFwAAAAdzc2gtcn
+    NhAAAAAwEAAQAAAQEAn29VboiBZGZLkfa1mSKkSk7fEciYC+BzQtfqKzt0YL6d5kR8BtkE
+    AeNXZqZQVfeg6U2uhDnYKZIocxnGahnEQWlP6Z7/xSQVTPf6KNlYJT1sQirTmtQveX6WeQ
+    cdKM2z6rYlmxkBh0E4vqRLQVm2UQLTODeaRJ8KxpjoNq5gWsGuWPB+8KCiggni7Z5RG0eZ
+    8mNpxLgZyJj/dbzsVlwRjmuB9vzO9Vz58DHyho/nNdYYAjl86fT7/XdeYYShT/xxuZ703e
+    kbnrWi3UksiLjqAej74Nq0ViaGqAZH7YQjgApZ1FTGeZpEYAn7/lJ0LQIn4Y3hP2MLtnU7
+    Sukdth5FTwAAA9DOc3dUznN3VAAAAAdzc2gtcnNhAAABAQCfb1VuiIFkZkuR9rWZIqRKTt
+    8RyJgL4HNC1+orO3Rgvp3mRHwG2QQB41dmplBV96DpTa6EOdgpkihzGcZqGcRBaU/pnv/F
+    JBVM9/oo2VglPWxCKtOa1C95fpZ5Bx0ozbPqtiWbGQGHQTi+pEtBWbZRAtM4N5pEnwrGmO
+    g2rmBawa5Y8H7woKKCCeLtnlEbR5nyY2nEuBnImP91vOxWXBGOa4H2/M71XPnwMfKGj+c1
+    1hgCOXzp9Pv9d15hhKFP/HG5nvTd6RuetaLdSSyIuOoB6Pvg2rRWJoaoBkfthCOAClnUVM
+    Z5mkRgCfv+UnQtAifhjeE/Ywu2dTtK6R22HkVPAAAAAwEAAQAAAQAkadEhRZwHyjVISQiA
+    ySCsuAbKkP3o+IJaqeWZqiKSVfbKOKn7BmWb6Mh1cVa3y668mjlZibyNAgyq/SAL64afSe
+    YufVn9NJiI07oWyk0PdE/dbNqXag7NuNO1IKLQRuromGFOYw+uTH8hS3TEoDC7n+GN3WUm
+    dwyG/zVKB9mJ4IYINR/Gz6rMvRqpsuLaBDO7+9pyyiL4cUKVhh0e90utFA1LDPXJvbvfpt
+    zxWcvnvDU2p+LIYEPCcdFyFy8/E/Z+XjuAkDA5QAu8xeTtgL5PydoEel5ggGa2JzR3qGye
+    V2MTrmoYD04vBTs8BNy7ZOi0nxMcZqW4kkDIhkJgVJZBAAAAgQCmqXFLk7CeVtYZSVXXGI
+    CzkcJuJFiJDILOTYXXpnQpTZmdlGXz2mMgVqPDROTB4H5OvawgsMlkr6/JP6DrttJSnbgL
+    lSuvNG1gwfXipba+Z2/ZQN7PHADxzWxxMVV8wk87pWE+MPy0W/LJmVSMfp0jgEu1PArf1d
+    Tu8cRXQ8UUpwAAAIEA03BNQSdSvup2KnHX9x1DTk36Kg7CSUCkaYVNUC0bona/G/Bu/9Q4
+    X8a0b8Uc5hehYEXEk6lUJq37jtabe2wBF7OdTaIk8ZcmOz6mN73QIw2cP5oQ/mJ7A7EZG6
+    F1uxpRoqwwhGkNwWWLlnytAoE7J56WI+faaF5q1vXaRJStZe0AAACBAMEJSO/dkFvJPwk7
+    GTCWUcbrKCWZsh/YeR4Z4dBXbE9GMttv3u6fGUlX08TWrb/Tf1bzpZiobS3tSNhekY6XcR
+    AZFMbcVgGkOG95HlfuzB2OOa+UkQQqsdGp7fL8nS4hg5pe+6i1rEj+RDUMhbAPFZr8GJUO
+    TVtAGLxDbIYaEfCrAAAAE2lhbXNhdkBzYXZtYWMubG9jYWwBAgMEBQYH
+    -----END OPENSSH PRIVATE KEY-----
+
+
+services:
+  web:
+    image: sy_web
+    build:
+      context: .
+    env_file:
+       - .env
+    environment:
+      <<: *app-config
+      <<: *db-config
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+    volumes: *web-volumes
+    stdin_open: true
+    tty: true
+
+  db:
+    image: postgres:12.5-alpine
+    environment: *db-config
+    logging:
+      driver: none
+    ports:
+      - "5432:5432"

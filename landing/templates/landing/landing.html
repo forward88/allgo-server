@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Schoolyard</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'landing/landing.css' %}">
+</head>
+<body>
+	<header>
+		<picture>
+			<source srcset="{% static 'landing/img/logo-large.png' %}" media="(min-width: 1440px)">
+			<img id="logo" src="{% static 'landing/img/logo-small.png' %}">
+		</picture>
+		<a id="cta-list" href="">Get on the list</a>
+		<h1 id="tagline">Life is a game.<br>Level up, together.</h1>
+		<a id="cta-join" href="">Join Season 1</a>
+		<picture>
+			<source srcset="{% static 'landing/img/avatars-large.png' %}" media="(min-width: 1440px)">
+			<img id="avatars" src="{% static 'landing/img/avatars-small.png' %}">
+		</picture>
+	</header>
+
+	<main>
+		<div id="participation">
+			<div class="benefit">
+				<h2>Made just for you</h2>
+				<div><img src="{% static 'landing/img/customized-benefit.png' %}"></div>
+				<p>Mix-and-match challenges from 1 minute to 1 year</p>
+			</div>
+			<div class="benefit">
+				<h2>Motivation on demand</h2>
+				<div><img src="{% static 'landing/img/motivation-benefit.png' %}"></div>
+				<p>Team up with friends, or get matched for quick-play</p>
+			</div>
+			<div class="benefit">
+				<h2>For funs sake</h2>
+				<div><img src="{% static 'landing/img/fun-benefit.png' %}"></div>
+				<p>All about that chat &ndash; before, during, and after</p>
+			</div>
+			<footer>
+				<p>Secure your spot by reserving a nickname</p>
+				<a class="cta-enter" href="">Enter the Schoolyard</a>
+			</footer>
+		</div>
+		<div id="challenges">
+			<h1>Challenges</h1>
+			<div id="challenge-categories">
+				<span class="challenge-category">&#x1F45F; Fitness</span>
+				<span class="challenge-category">&#x1F951; Nutrition</span>
+				<span class="challenge-category">&#x1F331; Mental</span>
+				<span class="challenge-category">&#x1F30E; Impact</span>
+				<span class="challenge-category">&#x1F3A8; Skills</span>
+				<span class="challenge-category">&#x1F4B8; Finance</span>
+				<span class="challenge-category">&#x1F4AD; Support</span>
+				<span class="challenge-category">&#x1F300; Random</span>
+				<span class="challenge-category">&#x1F4A5; Mixed</span>
+			</div>
+			<div id="challenge-list">
+				<div class="challenge-summary">
+					<span class="challenge-summary-category">&#x1F45F; Fitness</span>
+					<h2>Couch to Marathon</h2>
+					<p class="challenge-description">Boost your endurance and become a distance runner with incremental weekly goals.</p>
+					<p class="challenge-stats">&#x1F558; 30 days / &#x1F525; 23,488 / &#x1F465; 955</p>
+				</div>
+				<div class="challenge-summary">
+					<span class="challenge-summary-category">&#x1F951; Nutrition</span>
+					<h2>Whole7</h2>
+					<p class="challenge-description">Focus on eating only whole, unprocessed foods for one week.</p>
+					<p class="challenge-stats">&#x1F558; 7 days / &#x1F525; 23,488 / &#x1F465; 955</p>
+				</div>
+				<div class="challenge-summary">
+					<span class="challenge-summary-category">&#x1F331; Mental</span>
+					<h2>Mindful Minutes</h2>
+					<p class="challenge-description">Make more time for mindful breaks throughout your days.</p>
+					<p class="challenge-stats">&#x1F558; Variable / &#x1F525; 23,488 / &#x1F465; 955</p>
+				</div>
+				<div class="challenge-summary">
+					<span class="challenge-summary-category">&#x1F4B8; Finance</span>
+					<h2>Financial Fast</h2>
+					<p class="challenge-description">Spend &#36;0 over the next 24 hours.<br><br></p>
+					<p class="challenge-stats">&#x1F558; 1 day / &#x1F525; 23,488 / &#x1F465; 955</p>
+				</div>
+				<div class="challenge-summary">
+					<span class="challenge-summary-category">&#x1F4AD; Support</span>
+					<h2>RealTalk</h2>
+					<p class="challenge-description">Make more time for mindful breaks throughout your days.</p>
+					<p class="challenge-stats">&#x1F558; Variable / &#x1F525; 23,488 / &#x1F465; 955</p>
+				</div>
+				<div class="challenge-summary">
+					<span class="challenge-summary-category">&#x1F3A8; Skills</span>
+					<h2>Example Challenge</h2>
+					<p class="challenge-description">Spend &#36;0 over the next 24 hours.<br><br></p>
+					<p class="challenge-stats">&#x1F558; 1 day / &#x1F525; 23,488 / &#x1F465; 955</p>
+				</div>
+				<div class="challenge-summary">
+					<span class="challenge-summary-category">&#x1F45F; Fitness</span>
+					<h2>Couch to Marathon</h2>
+					<p class="challenge-description">Boost your endurance and become a distance runner with incremental weekly goals.</p>
+					<p class="challenge-stats">&#x1F558; 30 days / &#x1F525; 23,488 / &#x1F465; 955</p>
+				</div>
+				<div class="challenge-summary">
+					<span class="challenge-summary-category">&#x1F951; Nutrition</span>
+					<h2>Whole7</h2>
+					<p class="challenge-description">Focus on eating only whole, unprocessed foods for one week.</p>
+					<p class="challenge-stats">&#x1F558; 7 days / &#x1F525; 23,488 / &#x1F465; 955</p>
+				</div>
+				<a id="cta-view-more" href="">View more</a>
+			</div>
+		</div>
+	</main>
+
+	<footer>
+		<div id="create-challenge" class="footer-section">
+			<p>Want to add your own challenge to Schoolyard?</p>
+			<a id="cta-create-challenge" href="">Create a challenge</a>
+		</div>
+		<div id="reserve-nickname" class="footer-section">
+			<p>Ready to reserve your nickname?</p>
+			<a class="cta-enter" href="">Enter the Schoolyard</a>
+		</div>
+	</footer>
+</body>
+</html>

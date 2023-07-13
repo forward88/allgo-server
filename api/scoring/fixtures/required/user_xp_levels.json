@@ -1,0 +1,162 @@
+[
+{
+    "model": "scoring.userxplevel",
+    "pk": 1,
+    "fields": {
+        "level": 1,
+        "xp_threshold": 0
+    }
+},
+{
+    "model": "scoring.userxplevel",
+    "pk": 2,
+    "fields": {
+        "level": 2,
+        "xp_threshold": 250
+    }
+},
+{
+    "model": "scoring.userxplevel",
+    "pk": 3,
+    "fields": {
+        "level": 3,
+        "xp_threshold": 600
+    }
+},
+{
+    "model": "scoring.userxplevel",
+    "pk": 4,
+    "fields": {
+        "level": 4,
+        "xp_threshold": 1200
+    }
+},
+{
+    "model": "scoring.userxplevel",
+    "pk": 5,
+    "fields": {
+        "level": 5,
+        "xp_threshold": 2000
+    }
+},
+{
+    "model": "scoring.userxplevel",
+    "pk": 6,
+    "fields": {
+        "level": 6,
+        "xp_threshold": 3200
+    }
+},
+{
+    "model": "scoring.userxplevel",
+    "pk": 7,
+    "fields": {
+        "level": 7,
+        "xp_threshold": 5000
+    }
+},
+{
+    "model": "scoring.userxplevel",
+    "pk": 8,
+    "fields": {
+        "level": 8,
+        "xp_threshold": 7500
+    }
+},
+{
+    "model": "scoring.userxplevel",
+    "pk": 9,
+    "fields": {
+        "level": 9,
+        "xp_threshold": 10000
+    }
+},
+{
+    "model": "scoring.userxplevel",
+    "pk": 10,
+    "fields": {
+        "level": 10,
+        "xp_threshold": 13500
+    }
+},
+{
+    "model": "scoring.userxplevel",
+    "pk": 11,
+    "fields": {
+        "level": 11,
+        "xp_threshold": 18000
+    }
+},
+{
+    "model": "scoring.userxplevel",
+    "pk": 12,
+    "fields": {
+        "level": 12,
+        "xp_threshold": 23500
+    }
+},
+{
+    "model": "scoring.userxplevel",
+    "pk": 13,
+    "fields": {
+        "level": 13,
+        "xp_threshold": 30500
+    }
+},
+{
+    "model": "scoring.userxplevel",
+    "pk": 14,
+    "fields": {
+        "level": 14,
+        "xp_threshold": 39000
+    }
+},
+{
+    "model": "scoring.userxplevel",
+    "pk": 15,
+    "fields": {
+        "level": 15,
+        "xp_threshold": 48000
+    }
+},
+{
+    "model": "scoring.userxplevel",
+    "pk": 16,
+    "fields": {
+        "level": 16,
+        "xp_threshold": 60000
+    }
+},
+{
+    "model": "scoring.userxplevel",
+    "pk": 17,
+    "fields": {
+        "level": 17,
+        "xp_threshold": 75000
+    }
+},
+{
+    "model": "scoring.userxplevel",
+    "pk": 18,
+    "fields": {
+        "level": 18,
+        "xp_threshold": 95000
+    }
+},
+{
+    "model": "scoring.userxplevel",
+    "pk": 19,
+    "fields": {
+        "level": 19,
+        "xp_threshold": 120000
+    }
+},
+{
+    "model": "scoring.userxplevel",
+    "pk": 20,
+    "fields": {
+        "level": 20,
+        "xp_threshold": 150000
+    }
+}
+]

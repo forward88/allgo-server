@@ -1,0 +1,1445 @@
+openapi: 3.0.3
+info:
+  title: Schoolyard API
+  version: 0.15.1
+  description: API Backend to support Schoolyard apps.
+paths:
+  /api/auth/refresh-tokens/:
+    post:
+      operationId: auth_refresh_tokens_create
+      tags:
+      - auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshTokens'
+        required: true
+      security:
+      - APIKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RefreshTokens'
+          description: ''
+  /api/auth/request-phone-verification/:
+    post:
+      operationId: auth_request_phone_verification_create
+      description: SMS verification can be mocked by using phone numbers of the form
+        `+1612555xxxx` and using `811348` for the verification code.  This allows
+        test accounts to be made without a valid phone number.
+      tags:
+      - auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestPhoneVerification'
+        required: true
+      security:
+      - APIKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestPhoneVerification'
+          description: ''
+  /api/auth/sign-in/:
+    post:
+      operationId: auth_sign_in_create
+      tags:
+      - auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignIn'
+        required: true
+      security:
+      - APIKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignIn'
+          description: ''
+  /api/challenge/category/list/:
+    get:
+      operationId: challenge_category_list_list
+      tags:
+      - challenge
+      security:
+      - APIKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ChallengeCategoryList'
+          description: ''
+  /api/challenge/detail/:
+    get:
+      operationId: challenge_detail_retrieve
+      parameters:
+      - in: query
+        name: challenge_id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - challenge
+      security:
+      - APIKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChallengeDetail'
+          description: ''
+  /api/challenge/list/:
+    get:
+      operationId: challenge_list_list
+      parameters:
+      - in: query
+        name: category_ids
+        schema:
+          type: array
+          items:
+            type: integer
+        description: A comma-separated list of `category` IDs.
+        style: simple
+      - in: query
+        name: name_pattern
+        schema:
+          type: string
+        description: A case-insensitive string-searching pattern applied to the `name`
+          field of each `challenge` object.
+      tags:
+      - challenge
+      security:
+      - APIKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ChallengeList'
+          description: ''
+  /api/challenge/obstacle-detail/:
+    get:
+      operationId: challenge_obstacle_detail_retrieve
+      parameters:
+      - in: query
+        name: obstacle_id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - challenge
+      security:
+      - APIKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Obstacle'
+          description: ''
+  /api/scoring/achievement/list/:
+    get:
+      operationId: scoring_achievement_list_list
+      tags:
+      - scoring
+      security:
+      - APIKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Achievement'
+          description: ''
+  /api/team/create/:
+    get:
+      operationId: team_create_retrieve
+      tags:
+      - team
+      security:
+      - JWTAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+          description: ''
+  /api/team/detail/:
+    get:
+      operationId: team_detail_retrieve
+      parameters:
+      - in: query
+        name: team_uid
+        schema:
+          type: string
+        required: true
+      tags:
+      - team
+      security:
+      - JWTAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+          description: ''
+  /api/team/invitation/accept/:
+    get:
+      operationId: team_invitation_accept_retrieve
+      parameters:
+      - in: query
+        name: team_uid
+        schema:
+          type: string
+        required: true
+      tags:
+      - team
+      security:
+      - JWTAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvitationAccept'
+          description: ''
+  /api/team/invitation/decline/:
+    get:
+      operationId: team_invitation_decline_retrieve
+      parameters:
+      - in: query
+        name: team_uid
+        schema:
+          type: string
+        required: true
+      tags:
+      - team
+      security:
+      - JWTAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvitationDecline'
+          description: ''
+  /api/team/invitation/list/:
+    get:
+      operationId: team_invitation_list_list
+      tags:
+      - team
+      security:
+      - JWTAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TeamInvitation'
+          description: ''
+  /api/team/invite/:
+    get:
+      operationId: team_invite_retrieve
+      parameters:
+      - in: query
+        name: invitee_phone_numbers
+        schema:
+          type: array
+          items:
+            type: string
+        description: A comma-separated list of phone numbers.
+        required: true
+        style: simple
+      - in: query
+        name: team_uid
+        schema:
+          type: string
+        required: true
+      tags:
+      - team
+      security:
+      - JWTAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InviteTeam'
+          description: ''
+  /api/team/leave/:
+    get:
+      operationId: team_leave_retrieve
+      tags:
+      - team
+      security:
+      - JWTAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LeaveTeam'
+          description: ''
+  /api/team/obstacle-activity-record/:
+    get:
+      operationId: team_obstacle_activity_record_retrieve
+      parameters:
+      - in: query
+        name: end_date
+        schema:
+          type: string
+          format: date
+        required: true
+      - in: query
+        name: interval
+        schema:
+          enum:
+          - DAY
+          - MONTH
+        required: true
+      - in: query
+        name: start_date
+        schema:
+          type: string
+          format: date
+        required: true
+      - in: query
+        name: team_uid
+        schema:
+          type: string
+        required: true
+      tags:
+      - team
+      security:
+      - JWTAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObstacleActivityRecord'
+          description: ''
+  /api/user/add-obstacle-activity/:
+    get:
+      operationId: user_add_obstacle_activity_retrieve
+      parameters:
+      - in: query
+        name: amount
+        schema:
+          type: number
+          format: double
+        required: true
+      - in: query
+        name: obstacle_id
+        schema:
+          type: integer
+        required: true
+      - in: query
+        name: sequence_rank
+        schema:
+          type: integer
+        required: true
+      tags:
+      - user
+      security:
+      - JWTAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddObstacleActivity'
+          description: ''
+  /api/user/challenge/detail/:
+    get:
+      operationId: user_challenge_detail_retrieve
+      parameters:
+      - in: query
+        name: challenge_id
+        schema:
+          type: integer
+        required: true
+      - in: query
+        name: user_id
+        schema:
+          type: string
+          format: uuid
+      tags:
+      - user
+      security:
+      - JWTAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserChallenge'
+          description: ''
+  /api/user/challenge/list/:
+    get:
+      operationId: user_challenge_list_retrieve
+      parameters:
+      - in: query
+        name: user_id
+        schema:
+          type: string
+          format: uuid
+      tags:
+      - user
+      security:
+      - JWTAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserChallengeList'
+          description: ''
+  /api/user/check-nickname-availability/:
+    get:
+      operationId: user_check_nickname_availability_retrieve
+      parameters:
+      - in: query
+        name: nickname
+        schema:
+          type: string
+        required: true
+      tags:
+      - user
+      security:
+      - JWTAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CheckNicknameAvailability'
+          description: ''
+  /api/user/claim-nickname/:
+    get:
+      operationId: user_claim_nickname_retrieve
+      parameters:
+      - in: query
+        name: nickname
+        schema:
+          type: string
+        required: true
+      tags:
+      - user
+      security:
+      - JWTAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClaimNickname'
+          description: ''
+  /api/user/delete-account/:
+    get:
+      operationId: user_delete_account_retrieve
+      description: Deletes all user data
+      tags:
+      - user
+      security:
+      - JWTAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/user/detail/:
+    get:
+      operationId: user_detail_retrieve
+      description: Returns general information for the user specified by the provided
+        access token or user_id parameter.
+      parameters:
+      - in: query
+        name: user_id
+        schema:
+          type: string
+          format: uuid
+      tags:
+      - user
+      security:
+      - JWTAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfileDetail'
+          description: ''
+  /api/user/do-challenge-action/:
+    get:
+      operationId: user_do_challenge_action_retrieve
+      parameters:
+      - in: query
+        name: action
+        schema:
+          enum:
+          - JOIN
+          - PAUSE
+          - UNPAUSE
+          - LEAVE
+        required: true
+      - in: query
+        name: challenge_id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - user
+      security:
+      - JWTAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserChallengeAction'
+          description: ''
+  /api/user/obstacle-activity-record/:
+    get:
+      operationId: user_obstacle_activity_record_retrieve
+      parameters:
+      - in: query
+        name: end_date
+        schema:
+          type: string
+          format: date
+        required: true
+      - in: query
+        name: interval
+        schema:
+          enum:
+          - DAY
+          - MONTH
+        required: true
+      - in: query
+        name: start_date
+        schema:
+          type: string
+          format: date
+        required: true
+      tags:
+      - user
+      security:
+      - JWTAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObstacleActivityRecord'
+          description: ''
+  /api/user/obstacle/list/:
+    get:
+      operationId: user_obstacle_list_retrieve
+      parameters:
+      - in: query
+        name: as_of
+        schema:
+          type: string
+          format: date
+      tags:
+      - user
+      security:
+      - JWTAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserObstacleList'
+          description: ''
+  /api/user/profile/edit/:
+    get:
+      operationId: user_profile_edit_retrieve
+      parameters:
+      - in: query
+        name: avatar_name
+        schema:
+          type: string
+      - in: query
+        name: background_color_id
+        schema:
+          type: integer
+      - in: query
+        name: nickname
+        schema:
+          type: string
+      tags:
+      - user
+      security:
+      - JWTAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfileEdit'
+          description: ''
+  /api/user/profile/options/:
+    get:
+      operationId: user_profile_options_retrieve
+      tags:
+      - user
+      security:
+      - APIKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfileOptions'
+          description: ''
+components:
+  schemas:
+    Achievement:
+      type: object
+      properties:
+        name:
+          type: string
+          maxLength: 64
+        color_image_src:
+          type: string
+        grey_image_src:
+          type: string
+      required:
+      - color_image_src
+      - grey_image_src
+      - name
+    ActionEnum:
+      enum:
+      - JOIN
+      - PAUSE
+      - UNPAUSE
+      - LEAVE
+      type: string
+    AddObstacleActivity:
+      type: object
+      properties:
+        obstacle_id:
+          type: integer
+        sequence_rank:
+          type: integer
+        amount:
+          type: number
+          format: double
+          maximum: 10000000000000
+          minimum: -10000000000000
+          exclusiveMaximum: true
+          exclusiveMinimum: true
+        amount_registered:
+          type: number
+          format: double
+          maximum: 10000000000000
+          minimum: -10000000000000
+          exclusiveMaximum: true
+          exclusiveMinimum: true
+          readOnly: true
+      required:
+      - amount
+      - amount_registered
+      - obstacle_id
+      - sequence_rank
+    ChallengeCategoryList:
+      type: object
+      properties:
+        category_id:
+          type: integer
+        name:
+          type: string
+          maxLength: 64
+        icon_emoji:
+          type: string
+          maxLength: 4
+      required:
+      - category_id
+      - icon_emoji
+      - name
+    ChallengeDetail:
+      type: object
+      properties:
+        challenge_id:
+          type: integer
+        name:
+          type: string
+          maxLength: 1024
+        description:
+          type: string
+        category:
+          $ref: '#/components/schemas/NestedChallengeCategory'
+        obstacles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Obstacle'
+        color_profile:
+          $ref: '#/components/schemas/NestedChallengeColorProfile'
+        duration_seconds:
+          type: integer
+        duration_days:
+          type: integer
+        xp_value:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        n_participants:
+          type: integer
+        external_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 1024
+        chat_channel_id:
+          type: string
+          readOnly: true
+      required:
+      - category
+      - challenge_id
+      - chat_channel_id
+      - color_profile
+      - description
+      - duration_days
+      - duration_seconds
+      - n_participants
+      - name
+      - obstacles
+      - xp_value
+    ChallengeList:
+      type: object
+      properties:
+        challenge_id:
+          type: integer
+        name:
+          type: string
+          maxLength: 1024
+        description:
+          type: string
+        category:
+          $ref: '#/components/schemas/NestedChallengeCategory'
+        duration_seconds:
+          type: integer
+        duration_days:
+          type: integer
+        xp_value:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        n_participants:
+          type: integer
+      required:
+      - category
+      - challenge_id
+      - description
+      - duration_days
+      - duration_seconds
+      - n_participants
+      - name
+      - xp_value
+    CheckNicknameAvailability:
+      type: object
+      properties:
+        nickname:
+          type: string
+          writeOnly: true
+          maxLength: 15
+        nickname_available:
+          type: boolean
+          readOnly: true
+      required:
+      - nickname
+      - nickname_available
+    ClaimNickname:
+      type: object
+      properties:
+        nickname:
+          type: string
+          writeOnly: true
+          maxLength: 15
+        nickname_claimed:
+          type: boolean
+          readOnly: true
+      required:
+      - nickname
+      - nickname_claimed
+    IntervalEnum:
+      enum:
+      - DAY
+      - MONTH
+      type: string
+    IntervalTypeEnum:
+      enum:
+      - DAILY
+      - WEEKLY
+      - MONTHLY
+      type: string
+    InvitationAccept:
+      type: object
+      properties:
+        team_uid:
+          type: string
+          writeOnly: true
+          maxLength: 8
+        success:
+          type: boolean
+          readOnly: true
+      required:
+      - success
+      - team_uid
+    InvitationDecline:
+      type: object
+      properties:
+        team_uid:
+          type: string
+          writeOnly: true
+          maxLength: 8
+        success:
+          type: boolean
+          readOnly: true
+      required:
+      - success
+      - team_uid
+    InviteTeam:
+      type: object
+      properties:
+        success:
+          type: boolean
+      required:
+      - success
+    LeaveTeam:
+      type: object
+      properties:
+        success:
+          type: boolean
+      required:
+      - success
+    NestedChallenge:
+      type: object
+      properties:
+        challenge_id:
+          type: integer
+        name:
+          type: string
+          maxLength: 1024
+        description:
+          type: string
+        category:
+          $ref: '#/components/schemas/NestedChallengeCategory'
+        xp_value:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        n_participants:
+          type: integer
+        chat_channel_id:
+          type: string
+          readOnly: true
+      required:
+      - category
+      - challenge_id
+      - chat_channel_id
+      - description
+      - n_participants
+      - name
+      - xp_value
+    NestedChallengeCategory:
+      type: object
+      properties:
+        name:
+          type: string
+          maxLength: 64
+        icon_emoji:
+          type: string
+          maxLength: 4
+      required:
+      - icon_emoji
+      - name
+    NestedChallengeColorProfile:
+      type: object
+      properties:
+        background_rgb:
+          type: string
+          maxLength: 8
+        title_rgb:
+          type: string
+          maxLength: 8
+        description_rgb:
+          type: string
+          maxLength: 8
+      required:
+      - background_rgb
+      - description_rgb
+      - title_rgb
+    NestedUserChallenge:
+      type: object
+      properties:
+        challenge:
+          $ref: '#/components/schemas/NestedChallenge'
+        iteration:
+          type: integer
+          maximum: 32767
+          minimum: 0
+        state:
+          type: string
+        remaining_seconds:
+          type: integer
+        remaining_days:
+          type: integer
+        xp_earned:
+          type: number
+          format: double
+          maximum: 10000000000000
+          minimum: -10000000000000
+          exclusiveMaximum: true
+          exclusiveMinimum: true
+          readOnly: true
+      required:
+      - challenge
+      - iteration
+      - remaining_days
+      - remaining_seconds
+      - state
+      - xp_earned
+    NestedUserObstacle:
+      type: object
+      properties:
+        obstacle:
+          $ref: '#/components/schemas/Obstacle'
+        sequence_rank:
+          type: integer
+          maximum: 32767
+          minimum: 0
+        amount_completed:
+          type: number
+          format: double
+          maximum: 10000000000000
+          minimum: -10000000000000
+          exclusiveMaximum: true
+          exclusiveMinimum: true
+        remaining_seconds:
+          type: integer
+        remaining_days:
+          type: integer
+        start_date:
+          type: string
+          format: date
+        end_date:
+          type: string
+          format: date
+      required:
+      - amount_completed
+      - end_date
+      - obstacle
+      - remaining_days
+      - remaining_seconds
+      - sequence_rank
+      - start_date
+    Obstacle:
+      type: object
+      properties:
+        obstacle_id:
+          type: integer
+        interval_type:
+          $ref: '#/components/schemas/IntervalTypeEnum'
+        interval_days:
+          type: integer
+        duration_seconds:
+          type: integer
+        threshold:
+          type: number
+          format: double
+          maximum: 10000000000000
+          minimum: -10000000000000
+          exclusiveMaximum: true
+          exclusiveMinimum: true
+        task:
+          $ref: '#/components/schemas/ObstacleTask'
+        subcategory:
+          $ref: '#/components/schemas/NestedChallengeCategory'
+      required:
+      - duration_seconds
+      - interval_days
+      - interval_type
+      - obstacle_id
+      - subcategory
+      - task
+      - threshold
+    ObstacleActivityRecord:
+      type: object
+      properties:
+        start_date:
+          type: string
+          format: date
+          writeOnly: true
+        end_date:
+          type: string
+          format: date
+          writeOnly: true
+        interval:
+          allOf:
+          - $ref: '#/components/schemas/IntervalEnum'
+          writeOnly: true
+        activity_record:
+          allOf:
+          - $ref: '#/components/schemas/UserObstacleActivityRecordSummary'
+          readOnly: true
+      required:
+      - activity_record
+      - end_date
+      - interval
+      - start_date
+    ObstacleTask:
+      type: object
+      properties:
+        singular_name:
+          type: string
+          maxLength: 1024
+        plural_name:
+          type: string
+          maxLength: 1024
+        discrete:
+          type: boolean
+      required:
+      - plural_name
+      - singular_name
+    RefreshTokens:
+      type: object
+      properties:
+        access_token:
+          type: string
+          readOnly: true
+        refresh_token:
+          type: string
+          maxLength: 1024
+      required:
+      - access_token
+      - refresh_token
+    RequestPhoneVerification:
+      type: object
+      properties:
+        phone_number:
+          type: string
+          writeOnly: true
+        request_successful:
+          type: boolean
+          readOnly: true
+      required:
+      - phone_number
+      - request_successful
+    SignIn:
+      type: object
+      properties:
+        phone_number:
+          type: string
+          writeOnly: true
+        verification_token:
+          type: string
+          writeOnly: true
+          maxLength: 6
+          minLength: 6
+        access_token:
+          type: string
+          readOnly: true
+        refresh_token:
+          type: string
+          readOnly: true
+        new_user:
+          type: boolean
+          readOnly: true
+        nickname:
+          type: string
+          readOnly: true
+          maxLength: 15
+      required:
+      - access_token
+      - new_user
+      - nickname
+      - phone_number
+      - refresh_token
+      - verification_token
+    Team:
+      type: object
+      properties:
+        creator:
+          type: string
+        team_uid:
+          type: string
+        roster:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserProfileDetail'
+        xp_earned:
+          type: number
+          format: double
+          maximum: 10000000000000
+          minimum: -10000000000000
+          exclusiveMaximum: true
+          exclusiveMinimum: true
+          readOnly: true
+        chat_channel_id:
+          type: string
+          readOnly: true
+      required:
+      - chat_channel_id
+      - creator
+      - roster
+      - team_uid
+      - xp_earned
+    TeamInvitation:
+      type: object
+      properties:
+        inviter:
+          $ref: '#/components/schemas/UserProfileDetail'
+        invitee:
+          $ref: '#/components/schemas/UserProfileDetail'
+        team:
+          $ref: '#/components/schemas/Team'
+        status:
+          type: string
+      required:
+      - invitee
+      - inviter
+      - status
+      - team
+    UserAvatar:
+      type: object
+      properties:
+        name:
+          type: string
+          maxLength: 64
+        model_asset_src:
+          type: string
+        metadata_asset_src:
+          type: string
+        static_image_asset_src:
+          type: string
+      required:
+      - metadata_asset_src
+      - model_asset_src
+      - name
+      - static_image_asset_src
+    UserChallenge:
+      type: object
+      properties:
+        challenge:
+          $ref: '#/components/schemas/NestedChallenge'
+        iteration:
+          type: integer
+          maximum: 32767
+          minimum: 0
+        state:
+          type: string
+        remaining_seconds:
+          type: integer
+        remaining_days:
+          type: integer
+        obstacles:
+          type: array
+          items:
+            $ref: '#/components/schemas/NestedUserObstacle'
+        xp_earned:
+          type: number
+          format: double
+          maximum: 10000000000000
+          minimum: -10000000000000
+          exclusiveMaximum: true
+          exclusiveMinimum: true
+          readOnly: true
+      required:
+      - challenge
+      - iteration
+      - obstacles
+      - remaining_days
+      - remaining_seconds
+      - state
+      - xp_earned
+    UserChallengeAction:
+      type: object
+      properties:
+        challenge_id:
+          type: integer
+          writeOnly: true
+        action:
+          allOf:
+          - $ref: '#/components/schemas/ActionEnum'
+          writeOnly: true
+        iteration:
+          type: integer
+          readOnly: true
+      required:
+      - action
+      - challenge_id
+      - iteration
+    UserChallengeList:
+      type: object
+      properties:
+        open_challenges:
+          type: array
+          items:
+            $ref: '#/components/schemas/NestedUserChallenge'
+        closed_challenges:
+          type: array
+          items:
+            $ref: '#/components/schemas/NestedUserChallenge'
+      required:
+      - closed_challenges
+      - open_challenges
+    UserObstacle:
+      type: object
+      properties:
+        challenge:
+          $ref: '#/components/schemas/NestedChallenge'
+        obstacle:
+          $ref: '#/components/schemas/Obstacle'
+        sequence_rank:
+          type: integer
+          maximum: 32767
+          minimum: 0
+        amount_completed:
+          type: number
+          format: double
+          maximum: 10000000000000
+          minimum: -10000000000000
+          exclusiveMaximum: true
+          exclusiveMinimum: true
+        remaining_seconds:
+          type: integer
+        remaining_days:
+          type: integer
+        start_date:
+          type: string
+          format: date
+        end_date:
+          type: string
+          format: date
+      required:
+      - amount_completed
+      - challenge
+      - end_date
+      - obstacle
+      - remaining_days
+      - remaining_seconds
+      - sequence_rank
+      - start_date
+    UserObstacleActivityRecordData:
+      type: object
+      properties:
+        start_date:
+          type: string
+          format: date
+        end_date:
+          type: string
+          format: date
+        amount_completed:
+          type: number
+          format: double
+          maximum: 10000000000000
+          minimum: -10000000000000
+          exclusiveMaximum: true
+          exclusiveMinimum: true
+        amount_possible:
+          type: number
+          format: double
+          maximum: 10000000000000
+          minimum: -10000000000000
+          exclusiveMaximum: true
+          exclusiveMinimum: true
+      required:
+      - amount_completed
+      - amount_possible
+      - end_date
+      - start_date
+    UserObstacleActivityRecordSummary:
+      type: object
+      properties:
+        partitions:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserObstacleActivityRecordData'
+        average_amount_completed:
+          type: number
+          format: double
+          maximum: 10000000000000
+          minimum: -10000000000000
+          exclusiveMaximum: true
+          exclusiveMinimum: true
+        max_streak:
+          type: integer
+        n_obstacles:
+          type: integer
+        total_xp_earned:
+          type: integer
+      required:
+      - average_amount_completed
+      - max_streak
+      - n_obstacles
+      - partitions
+      - total_xp_earned
+    UserObstacleList:
+      type: object
+      properties:
+        as_of:
+          type: string
+          format: date
+          writeOnly: true
+          nullable: true
+        DAILY:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserObstacle'
+          readOnly: true
+        WEEKLY:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserObstacle'
+          readOnly: true
+        MONTHLY:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserObstacle'
+          readOnly: true
+      required:
+      - DAILY
+      - MONTHLY
+      - WEEKLY
+      - as_of
+    UserProfileBackgroundColor:
+      type: object
+      properties:
+        color_id:
+          type: integer
+          readOnly: true
+        background_rgb:
+          type: string
+          maxLength: 8
+      required:
+      - background_rgb
+      - color_id
+    UserProfileDetail:
+      type: object
+      properties:
+        nickname:
+          type: string
+          nullable: true
+          maxLength: 15
+        user_id:
+          type: string
+        team_uid:
+          type: string
+          readOnly: true
+        avatar:
+          $ref: '#/components/schemas/UserAvatar'
+        background_color:
+          $ref: '#/components/schemas/UserProfileBackgroundColor'
+        streak:
+          type: integer
+          readOnly: true
+        xp_earned:
+          type: number
+          format: double
+          maximum: 10000000000000
+          minimum: -10000000000000
+          exclusiveMaximum: true
+          exclusiveMinimum: true
+          readOnly: true
+        chat_user_id:
+          type: string
+          readOnly: true
+        xp_level:
+          type: integer
+          readOnly: true
+        xp_level_progress:
+          type: number
+          format: double
+          maximum: 1
+          minimum: 0
+          readOnly: true
+      required:
+      - avatar
+      - background_color
+      - chat_user_id
+      - streak
+      - team_uid
+      - user_id
+      - xp_earned
+      - xp_level
+      - xp_level_progress
+    UserProfileEdit:
+      type: object
+      properties:
+        nickname:
+          type: string
+          nullable: true
+        avatar_name:
+          type: string
+          writeOnly: true
+          nullable: true
+        avatar:
+          allOf:
+          - $ref: '#/components/schemas/UserAvatar'
+          readOnly: true
+        background_color_id:
+          type: integer
+          writeOnly: true
+          nullable: true
+        background_color:
+          allOf:
+          - $ref: '#/components/schemas/UserProfileBackgroundColor'
+          readOnly: true
+      required:
+      - avatar
+      - avatar_name
+      - background_color
+      - background_color_id
+      - nickname
+    UserProfileOptions:
+      type: object
+      properties:
+        avatars:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserAvatar'
+          readOnly: true
+        background_colors:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserProfileBackgroundColor'
+          readOnly: true
+      required:
+      - avatars
+      - background_colors
+  securitySchemes:
+    APIKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+    JWTAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+externalDocs:
+  description: ChangeLog
+  url: /static/doc/ChangeLog.txt

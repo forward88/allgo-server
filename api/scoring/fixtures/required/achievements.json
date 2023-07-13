@@ -1,0 +1,152 @@
+[
+{
+    "model": "scoring.achievement",
+    "pk": 1,
+    "fields": {
+        "name": "1 Month Streak",
+        "color_image": "scoring/assets/achievements/color/1-month-streak-color-91.png",
+        "grey_image": "scoring/assets/achievements/grey/1-month-streak-grey-91.png",
+        "order_rank": 5
+    }
+},
+{
+    "model": "scoring.achievement",
+    "pk": 2,
+    "fields": {
+        "name": "1 Week Streak",
+        "color_image": "scoring/assets/achievements/color/1-week-streak-color-91.png",
+        "grey_image": "scoring/assets/achievements/grey/1-week-streak-grey-91.png",
+        "order_rank": 4
+    }
+},
+{
+    "model": "scoring.achievement",
+    "pk": 3,
+    "fields": {
+        "name": "1 Year Streak",
+        "color_image": "scoring/assets/achievements/color/1-year-streak-color-91.png",
+        "grey_image": "scoring/assets/achievements/grey/1-year-streak-grey-91.png",
+        "order_rank": 6
+    }
+},
+{
+    "model": "scoring.achievement",
+    "pk": 4,
+    "fields": {
+        "name": "100,000 XP",
+        "color_image": "scoring/assets/achievements/color/100k-color-91.png",
+        "grey_image": "scoring/assets/achievements/grey/100k-grey-91.png",
+        "order_rank": 12
+    }
+},
+{
+    "model": "scoring.achievement",
+    "pk": 5,
+    "fields": {
+        "name": "10,000 XP",
+        "color_image": "scoring/assets/achievements/color/10k-color-91.png",
+        "grey_image": "scoring/assets/achievements/grey/10k-grey-91.png",
+        "order_rank": 9
+    }
+},
+{
+    "model": "scoring.achievement",
+    "pk": 6,
+    "fields": {
+        "name": "1,000 XP",
+        "color_image": "scoring/assets/achievements/color/1k-color-91.png",
+        "grey_image": "scoring/assets/achievements/grey/1k-grey-91.png",
+        "order_rank": 7
+    }
+},
+{
+    "model": "scoring.achievement",
+    "pk": 7,
+    "fields": {
+        "name": "1,000,000 XP",
+        "color_image": "scoring/assets/achievements/color/1m-color-91.png",
+        "grey_image": "scoring/assets/achievements/grey/1m-grey-91.png",
+        "order_rank": 15
+    }
+},
+{
+    "model": "scoring.achievement",
+    "pk": 8,
+    "fields": {
+        "name": "250,000 XP",
+        "color_image": "scoring/assets/achievements/color/250k-color-91.png",
+        "grey_image": "scoring/assets/achievements/grey/250k-grey-91.png",
+        "order_rank": 13
+    }
+},
+{
+    "model": "scoring.achievement",
+    "pk": 9,
+    "fields": {
+        "name": "25,000 XP",
+        "color_image": "scoring/assets/achievements/color/25k-color-91.png",
+        "grey_image": "scoring/assets/achievements/grey/25k-grey-91.png",
+        "order_rank": 10
+    }
+},
+{
+    "model": "scoring.achievement",
+    "pk": 10,
+    "fields": {
+        "name": "500,000 XP",
+        "color_image": "scoring/assets/achievements/color/500k-color-91.png",
+        "grey_image": "scoring/assets/achievements/grey/500k-grey-91.png",
+        "order_rank": 14
+    }
+},
+{
+    "model": "scoring.achievement",
+    "pk": 11,
+    "fields": {
+        "name": "50,000 XP",
+        "color_image": "scoring/assets/achievements/color/50k-color-91.png",
+        "grey_image": "scoring/assets/achievements/grey/50k-grey-91.png",
+        "order_rank": 11
+    }
+},
+{
+    "model": "scoring.achievement",
+    "pk": 12,
+    "fields": {
+        "name": "5,000 XP",
+        "color_image": "scoring/assets/achievements/color/5k-color-91.png",
+        "grey_image": "scoring/assets/achievements/grey/5k-grey-91.png",
+        "order_rank": 8
+    }
+},
+{
+    "model": "scoring.achievement",
+    "pk": 13,
+    "fields": {
+        "name": "Team Bronze Medal",
+        "color_image": "scoring/assets/achievements/color/team-bronze-medal-color-91.png",
+        "grey_image": "scoring/assets/achievements/grey/team-bronze-medal-grey-91.png",
+        "order_rank": 1
+    }
+},
+{
+    "model": "scoring.achievement",
+    "pk": 14,
+    "fields": {
+        "name": "Team Gold Medal",
+        "color_image": "scoring/assets/achievements/color/team-gold-medal-color-91.png",
+        "grey_image": "scoring/assets/achievements/grey/team-gold-medal-grey-91.png",
+        "order_rank": 3
+    }
+},
+{
+    "model": "scoring.achievement",
+    "pk": 15,
+    "fields": {
+        "name": "Team Silver Metal",
+        "color_image": "scoring/assets/achievements/color/team-silver-medal-color-91.png",
+        "grey_image": "scoring/assets/achievements/grey/team-silver-medal-grey-91.png",
+        "order_rank": 2
+    }
+}
+]

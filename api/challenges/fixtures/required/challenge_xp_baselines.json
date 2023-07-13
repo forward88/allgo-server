@@ -1,0 +1,83 @@
+[
+{
+    "model": "challenges.challengexpbaseline",
+    "pk": 1,
+    "fields": {
+        "duration_days": 1,
+        "difficulty": "E",
+        "xp_baseline": 50
+    }
+},
+{
+    "model": "challenges.challengexpbaseline",
+    "pk": 2,
+    "fields": {
+        "duration_days": 1,
+        "difficulty": "M",
+        "xp_baseline": 75
+    }
+},
+{
+    "model": "challenges.challengexpbaseline",
+    "pk": 3,
+    "fields": {
+        "duration_days": 1,
+        "difficulty": "H",
+        "xp_baseline": 100
+    }
+},
+{
+    "model": "challenges.challengexpbaseline",
+    "pk": 4,
+    "fields": {
+        "duration_days": 7,
+        "difficulty": "E",
+        "xp_baseline": 250
+    }
+},
+{
+    "model": "challenges.challengexpbaseline",
+    "pk": 5,
+    "fields": {
+        "duration_days": 7,
+        "difficulty": "M",
+        "xp_baseline": 375
+    }
+},
+{
+    "model": "challenges.challengexpbaseline",
+    "pk": 6,
+    "fields": {
+        "duration_days": 7,
+        "difficulty": "H",
+        "xp_baseline": 500
+    }
+},
+{
+    "model": "challenges.challengexpbaseline",
+    "pk": 7,
+    "fields": {
+        "duration_days": 28,
+        "difficulty": "E",
+        "xp_baseline": 1000
+    }
+},
+{
+    "model": "challenges.challengexpbaseline",
+    "pk": 8,
+    "fields": {
+        "duration_days": 28,
+        "difficulty": "M",
+        "xp_baseline": 1750
+    }
+},
+{
+    "model": "challenges.challengexpbaseline",
+    "pk": 9,
+    "fields": {
+        "duration_days": 28,
+        "difficulty": "H",
+        "xp_baseline": 2500
+    }
+}
+]

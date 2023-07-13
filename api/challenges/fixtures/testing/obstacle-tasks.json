@@ -1,0 +1,164 @@
+[
+{
+  "model": "challenges.obstacletask",
+  "pk": 1,
+  "fields": {
+    "singular_name": "patriarchy smashed",
+    "plural_name": "patriarchies smashed",
+    "discrete": false
+  }
+},
+{
+  "model": "challenges.obstacletask",
+  "pk": 2,
+  "fields": {
+    "singular_name": "gallon of water consumed",
+    "plural_name": "gallons of water consumed",
+    "discrete": true
+  }
+},
+{
+  "model": "challenges.obstacletask",
+  "pk": 3,
+  "fields": {
+    "singular_name": "mile walking or running",
+    "plural_name": "miles walking or running",
+    "discrete": false
+  }
+},
+{
+  "model": "challenges.obstacletask",
+  "pk": 4,
+  "fields": {
+    "singular_name": "minute of meditation",
+    "plural_name": "minutes of meditation",
+    "discrete": true
+  }
+},
+{
+  "model": "challenges.obstacletask",
+  "pk": 5,
+  "fields": {
+    "singular_name": "book read",
+    "plural_name": "books read",
+    "discrete": false
+  }
+},
+{
+  "model": "challenges.obstacletask",
+  "pk": 6,
+  "fields": {
+    "singular_name": "hour of sleep",
+    "plural_name": "hours of sleep",
+    "discrete": false
+  }
+},
+{
+  "model": "challenges.obstacletask",
+  "pk": 7,
+  "fields": {
+    "singular_name": "cancer cured",
+    "plural_name": "cancers cured",
+    "discrete": true
+  }
+},
+{
+  "model": "challenges.obstacletask",
+  "pk": 8,
+  "fields": {
+    "singular_name": "mountain climbed",
+    "plural_name": "mountains climbed",
+    "discrete": false
+  }
+},
+{
+  "model": "challenges.obstacletask",
+  "pk": 9,
+  "fields": {
+    "singular_name": "mic dropped",
+    "plural_name": "mics dropped",
+    "discrete": true
+  }
+},
+{
+  "model": "challenges.obstacletask",
+  "pk": 10,
+  "fields": {
+    "singular_name": "couch surfed",
+    "plural_name": "couches surfed",
+    "discrete": true
+  }
+},
+{
+  "model": "challenges.obstacletask",
+  "pk": 11,
+  "fields": {
+    "singular_name": "undersea adventure had",
+    "plural_name": "undersea adventures had",
+    "discrete": true
+  }
+},
+{
+  "model": "challenges.obstacletask",
+  "pk": 12,
+  "fields": {
+    "singular_name": "bridge built",
+    "plural_name": "bridges built",
+    "discrete": true
+  }
+},
+{
+  "model": "challenges.obstacletask",
+  "pk": 13,
+  "fields": {
+    "singular_name": "sea charted",
+    "plural_name": "seas charted",
+    "discrete": false
+  }
+},
+{
+  "model": "challenges.obstacletask",
+  "pk": 14,
+  "fields": {
+    "singular_name": "treaty negotiated",
+    "plural_name": "treaties negotiated",
+    "discrete": false
+  }
+},
+{
+  "model": "challenges.obstacletask",
+  "pk": 15,
+  "fields": {
+    "singular_name": "diaper changed",
+    "plural_name": "diapers changed",
+    "discrete": true
+  }
+},
+{
+  "model": "challenges.obstacletask",
+  "pk": 16,
+  "fields": {
+    "singular_name": "dream realized",
+    "plural_name": "dreams realized",
+    "discrete": false
+  }
+},
+{
+  "model": "challenges.obstacletask",
+  "pk": 17,
+  "fields": {
+    "singular_name": "cow tipped",
+    "plural_name": "cows tipped",
+    "discrete": true
+  }
+},
+{
+  "model": "challenges.obstacletask",
+  "pk": 18,
+  "fields": {
+    "singular_name": "play written",
+    "plural_name": "plays written",
+    "discrete": false
+  }
+}
+]

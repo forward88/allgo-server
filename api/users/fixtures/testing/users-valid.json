@@ -1,0 +1,149 @@
+[
+{
+  "model": "users.apiuser",
+  "pk": "03f95aa7-f7a5-48ab-9446-4e37f2212758",
+  "fields": {
+    "phone_number": "+16125550005",
+    "state": "A",
+    "first_sign_in": "2021-08-16T17:46:09.296Z",
+    "last_sign_in": "2021-11-13T09:37:09.296Z",
+    "last_access": "2021-11-13T09:37:09.296Z",
+    "refresh_token_revocation_cursor": 9,
+    "ctime": "2021-08-16T00:00:00Z"
+  }
+},
+{
+  "model": "users.apiuser",
+  "pk": "06abde55-96ee-4ffa-bb60-41bccc56df16",
+  "fields": {
+    "phone_number": "+16125550006",
+    "state": "A",
+    "first_sign_in": "2021-08-25T22:48:40.303Z",
+    "last_sign_in": "2021-11-17T12:12:00.303Z",
+    "last_access": "2021-11-17T12:12:00.303Z",
+    "refresh_token_revocation_cursor": 9,
+    "ctime": "2021-08-24T00:00:00Z"
+  }
+},
+{
+  "model": "users.apiuser",
+  "pk": "0a42ca5f-3128-4ffd-95de-839f39edff58",
+  "fields": {
+    "phone_number": "+16125550002",
+    "state": "A",
+    "first_sign_in": "2021-08-23T15:56:28.277Z",
+    "last_sign_in": "2021-11-13T22:29:25.277Z",
+    "last_access": "2021-11-13T22:29:25.277Z",
+    "refresh_token_revocation_cursor": 28,
+    "ctime": "2021-08-22T00:00:00Z"
+  }
+},
+{
+  "model": "users.apiuser",
+  "pk": "0a815d45-edb9-4c55-84c6-cd4a40fcd6d5",
+  "fields": {
+    "phone_number": "+16125550000",
+    "state": "A",
+    "first_sign_in": "2021-08-19T00:44:06.197Z",
+    "last_sign_in": "2021-11-13T19:13:50.197Z",
+    "last_access": "2021-11-13T19:13:50.197Z",
+    "refresh_token_revocation_cursor": 15,
+    "ctime": "2021-08-16T00:00:00Z"
+  }
+},
+{
+  "model": "users.apiuser",
+  "pk": "7c22f8b9-3de9-44e3-9188-dbee5a4bb764",
+  "fields": {
+    "phone_number": "+16125550001",
+    "state": "A",
+    "first_sign_in": "2021-08-17T18:07:30.270Z",
+    "last_sign_in": "2021-11-15T21:26:09.270Z",
+    "last_access": "2021-11-15T21:26:09.270Z",
+    "refresh_token_revocation_cursor": 12,
+    "ctime": "2021-08-15T00:00:00Z"
+  }
+},
+{
+  "model": "users.apiuser",
+  "pk": "e225220c-542a-496d-b931-39b37367c952",
+  "fields": {
+    "phone_number": "+16125550004",
+    "state": "A",
+    "first_sign_in": "2021-08-19T10:17:56.290Z",
+    "last_sign_in": "2021-11-16T11:02:00.290Z",
+    "last_access": "2021-11-16T11:02:00.290Z",
+    "refresh_token_revocation_cursor": 22,
+    "ctime": "2021-08-17T00:00:00Z"
+  }
+},
+{
+  "model": "users.apiuser",
+  "pk": "e8f27510-d945-4574-a8ca-73644207f218",
+  "fields": {
+    "phone_number": "+16125550003",
+    "state": "A",
+    "first_sign_in": "2021-08-20T15:03:53.283Z",
+    "last_sign_in": "2021-11-12T18:15:05.283Z",
+    "last_access": "2021-11-12T18:15:05.283Z",
+    "refresh_token_revocation_cursor": 6,
+    "ctime": "2021-08-18T00:00:00Z"
+  }
+},
+{
+  "model": "users.userprofile",
+  "pk": 21,
+  "fields": {
+    "api_user": "0a815d45-edb9-4c55-84c6-cd4a40fcd6d5",
+    "nickname": "LadyElla"
+  }
+},
+{
+  "model": "users.userprofile",
+  "pk": 22,
+  "fields": {
+    "api_user": "7c22f8b9-3de9-44e3-9188-dbee5a4bb764",
+    "nickname": "ZiggyStardust"
+  }
+},
+{
+  "model": "users.userprofile",
+  "pk": 23,
+  "fields": {
+    "api_user": "0a42ca5f-3128-4ffd-95de-839f39edff58",
+    "nickname": "ScoobyDoo"
+  }
+},
+{
+  "model": "users.userprofile",
+  "pk": 24,
+  "fields": {
+    "api_user": "e8f27510-d945-4574-a8ca-73644207f218",
+    "nickname": "WinstonOBoogie"
+  }
+},
+{
+  "model": "users.userprofile",
+  "pk": 25,
+  "fields": {
+    "api_user": "e225220c-542a-496d-b931-39b37367c952",
+    "nickname": "JenniferJuniper"
+  }
+},
+{
+  "model": "users.userprofile",
+  "pk": 26,
+  "fields": {
+    "api_user": "03f95aa7-f7a5-48ab-9446-4e37f2212758",
+    "nickname": "SashaFierce"
+  }
+},
+{
+  "model": "users.userprofile",
+  "pk": 27,
+  "fields": {
+    "api_user": "06abde55-96ee-4ffa-bb60-41bccc56df16",
+    "nickname": "TelegramSam"
+  }
+}
+]

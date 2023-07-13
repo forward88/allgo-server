@@ -1,0 +1,11 @@
+[
+  {
+    "model": "scoring.supplementalxpreward",
+    "pk": 1,
+    "fields": {
+      "reward_type": "O",
+      "xp_value": 100,
+      "description": "Reward for onboarding completion"
+    }
+  }
+]
